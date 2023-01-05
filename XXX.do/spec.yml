@@ -1,0 +1,26 @@
+alerts:
+  - rule: DEPLOYMENT_FAILED
+  - rule: DOMAIN_FAILED
+envs:
+  - key: PUBLIC_SUPABASE_URL
+    scope: RUN_AND_BUILD_TIME
+    value: https://corvvfkciyxcperroqdb.supabase.co
+  - key: PUBLIC_SUPABASE_KEY
+    scope: RUN_AND_BUILD_TIME
+    value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNvcnZ2ZmtjaXl4Y3BlcnJvcWRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzI4NDgxMzAsImV4cCI6MTk4ODQyNDEzMH0.aaXmu1h1L0VaJviDf46w-Wv7AnKAdJgK2v72gkYqUG0
+name: svelte-kanban
+region: fra
+services:
+  - build_command: npm run build
+    environment_slug: node-js
+    github:
+      branch: main
+      deploy_on_push: true
+      repo: nbiada/svelte-kanban
+    http_port: 8080
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    name: svelte-kanban
+    routes:
+      - path: /
+    source_dir: /
